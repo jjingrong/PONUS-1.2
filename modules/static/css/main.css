@@ -1,0 +1,23 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+{% include 'django_facebook/_facebook_js.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
