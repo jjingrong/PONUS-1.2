@@ -1,8 +1,7 @@
-from modules.models import Module
+from modules.models import Module, Lesson
 import json
-import io
 
-json_modules = io.open('modules.json', encoding='utf-8').read()
+json_modules = open('modules.json', encoding='utf-8').read()
 decoded_modules = json.loads(json_modules)
 
 for module in decoded_modules:
@@ -52,5 +51,3 @@ for module in decoded_modules:
 	entry.save()
 
 Module.objects.all()
-
-json_modules.close()
