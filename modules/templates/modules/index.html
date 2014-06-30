@@ -4,7 +4,6 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -76,9 +75,10 @@
       </div>
     </div>
     {% endblock %}
+    {% block content %}
     <div class="container">
       <!-- Example row of columns -->
-      {% block content %}
+
       <div class="row">
         <div class="col-md-4">
           <h2>View Modules in Table form here!</h2>
@@ -108,7 +108,7 @@
           </p>
         </div>
       </div>
-      {% endblock %}
+
       <hr>
 
       <footer>
@@ -117,7 +117,9 @@
         Leong Wei Ming</a> , <a href="mailto:jingrong@nus.edu.sg?Subject=Queries%20about%20Path%20of%20NUS" target="_top">
         Lim Jing Rong</a> </p>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    </div> <!-- /container -->        
+    {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 										<!--REMOVES CONFLICT -->
 										<script>var $jq1 = jQuery.noConflict();</script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>

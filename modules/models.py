@@ -3,10 +3,12 @@ from django import forms
 from django.contrib.auth.models import User
 from allauth.account.models import EmailAddress
 from allauth.socialaccount.models import SocialAccount
+from django_facebook import *
 import hashlib
 
 # Create your models here.
 AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
 class Module(models.Model):
 
@@ -46,22 +48,31 @@ class Semester(models.Model):
 		return self.semester_name
 	
 	semester_name = models.CharField(max_length=20, null=True, blank=True)
+	user = models.ForeignKey(User, blank=True, related_name="semester")
 
 class UserModule(models.Model):
-
 	def __str__(self):
-		return module.module_code
-		
+		return self.module.module_code
+
 	module = models.ForeignKey(Module)
+	user = models.ForeignKey(User, blank=True, related_name="usermodule")
+
+#LINK BTWN SEMESTER AND USERMODULES IDENTIFIED BY USER
+class Semester_UserModule_Link(models.Model):
+	def __str__(self):
+		return self.semester.semester_name +  " / " + self.usermodule.module.module_code
+	usermodule = models.ForeignKey(UserModule)
 	semester = models.ForeignKey(Semester)
-	
+	user = models.ForeignKey(User, blank=True, related_name="link")
+
+#TO CREATE USERMODULES
 class Module_Form(forms.ModelForm):
 	module = forms.ModelChoiceField(queryset=Module.objects.all().order_by("module_code"))
 	
 	class Meta:
 		model = UserModule
-		exclude = ('semester',)
-
+		exclude = ('user',)
+		
 #FACEBOOK EDIT
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')

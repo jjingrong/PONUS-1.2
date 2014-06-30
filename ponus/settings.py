@@ -10,10 +10,12 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from django.conf import settings
+
+# To solve the no handlers for django_facebook problem
 import logging
 
-logger = logging.getLogger(__name__)
+#logging.error('A message from admin.py')
+######################################################
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -28,7 +30,7 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_PATH, 'modules/templates/modules/'), )
 
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
-FACEBOOK_APP_ID = '793984317279102'
+FACEBOOK_APP_ID = 793984317279102
 FACEBOOK_APP_SECRET = '2f6091977bc1959619ddf1bbac145dce'
 
 
@@ -60,6 +62,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'django_facebook.context_processors.facebook',
+    'django.core.context_processors.csrf',
 )
 AUTHENTICATION_BACKENDS = (
     'django_facebook.auth_backends.FacebookBackend',
@@ -76,6 +79,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 	'modules',
     'django_facebook',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -119,9 +123,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
-
-MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 

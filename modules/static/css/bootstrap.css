@@ -18,7 +18,10 @@ aside,
 details,
 figcaption,
 figure,
-footer,
+footer {
+  position: fixed;
+  bottom: 30px;
+}
 header,
 hgroup,
 main,
@@ -5161,7 +5164,6 @@ button.close {
   padding: 20px;
 }
 .modal-footer {
-  position: fixed; float bottom;
   padding: 19px 20px 20px;
   margin-top: 15px;
   text-align: right;
