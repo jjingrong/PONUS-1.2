@@ -10,6 +10,11 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf import settings
+import logging
+
+logger = logging.getLogger(__name__)
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 SETTINGS_DIR = os.path.dirname(__file__)
@@ -23,7 +28,8 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_PATH, 'modules/templates/modules/'), )
 
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
-FACEBOOK_APP_ID = 793984317279102
+FACEBOOK_APP_ID = '793984317279102'
+FACEBOOK_APP_SECRET = '2f6091977bc1959619ddf1bbac145dce'
 
 
 
@@ -113,6 +119,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
+
+
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 

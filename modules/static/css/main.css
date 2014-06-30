@@ -8,7 +8,64 @@
 {% include 'django_facebook/_facebook_js.html' %}
 
 
+<!-- CSS -->
+<style type="text/css">
+.list {
+    background-color: lightblue;
+    border: 1px solid gray;
+}
+ 
+.items .ui-selected {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+ 
+.items {
+    list-style-type: none;
+    margin-left: 10px;
+    padding: 0;
+    width: 100px;
+    float: left;
+}
+ 
+.items li {
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+ 
+.g {
+    background-color: lightgreen;
+}
+ 
+.o {
+    background-color: orange;
+}
+ 
+.highlight {
+    border: 2px solid red;
+    font-weight: bold;
+}
 
+
+#sortable-delete { 
+    height: 18px; 
+    overflow: hidden; 
+    background: url('/resources/img/bin.png') 0 50% no-repeat; 
+}
+#sortable-delete li { 
+    height: 0; 
+    width: 0; 
+    overflow: hidden; 
+}
+ul.sortable { 
+    padding-bottom: 5px; 
+}
+ul.sortable li {  
+    cursor: pointer; 
+}
 
 
 

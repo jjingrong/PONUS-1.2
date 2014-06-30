@@ -3,11 +3,74 @@
 {% load staticfiles %}
 {% block content %}
 {% if latest_module_list %}
-	<ul>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
+<script>
+
+$("body").on('click', '#items1 .delete', function () {
+    $(this).closest( ".list" ).remove();
+});
+
+$("body").on('click', '#items1 .delete', function () {
+    $(this).closest( ".list" ).remove();
+});
+
+</script>
+<head>
+
+<!-- CSS -->
+<style type="text/css">
+.list {
+    background-color: lightblue;
+    border: 1px solid gray;
+    width: 100px;
+}
+ 
+.items .ui-selected {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+ 
+.items {
+    list-style-type: none;
+    margin-left: 10px;
+    padding: 0;
+    width: 100px;
+    float: left;
+}
+ 
+.items li {
+    margin: 2px;
+    padding: 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+ 
+.g {
+    background-color: lightgreen;
+}
+ 
+.o {
+    background-color: orange;
+}
+ 
+.highlight {
+    border: 2px solid red;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<ul id="items1" class="items">
+ 
+
 	{% for module in latest_module_list %}
-		<li>
-		
-			<h1>{{ module.module_code }}</h1>
+		<li class="list">
+			<button class="delete">Delete</button>
+			<font face="helvetica" >{{ module.module_code }}</font>
 		
 			<details>
 				<summary>{{module.module_title}}</summary>
@@ -22,6 +85,44 @@
 			</details>
 		</li>
 	{% endfor %}
-	</ul>
+</ul>
+<ul id="items1" class="items">
+    <font face="verdana" color="green">Y1 S1</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+   
+</ul>   
+<ul id="items1" class="items">
+    <font face="verdana" color="green">Y1 S2</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+   
+</ul>   
+<ul id="items1" class="items">
+    <font face="verdana" color="dark red">Y2 S1</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+   
+</ul>   
+<ul id="items1" class="items">
+    <font face="verdana" color="purple">Y2 S2</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+   
+</ul>   
+<ul id="items1" class="items">
+    <font face="verdana" color="brown">Y3 S1</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+   
+</ul>   
+<ul id="items1" class="items">
+    <font face="verdana" color="teal">Y3 S2</font><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <font> </font>
+
+   
+</ul>
+
 {% endif %}
 {% endblock %}
