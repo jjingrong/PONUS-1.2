@@ -24,6 +24,7 @@ TEMPLATE_DIRS = ( os.path.join(PROJECT_PATH, 'modules/templates/modules/'), )
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
 FACEBOOK_APP_ID = 793984317279102
+FACEBOOK_APP_SECRET = 2f6091977bc1959619ddf1bbac145dce
 
 
 # Quick-start development settings - unsuitable for production
