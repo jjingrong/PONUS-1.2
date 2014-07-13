@@ -8,5 +8,9 @@ urlpatterns = patterns('',
 	url(r'^addmodule', views.addmodule, name='addmodule'),
 	url(r'^sorttable', views.sorttable, name='sorttable'),
 	url(r'^update', views.update, name='update'),
-
+	url(r'^newsearch', views.newsearch, name='newsearch'),
+	url(r'^home', views.home, name='home'),
+	url(r'^newmodule', views.newmodule, name='newmodule'),
+	url(r'^deletemodule', views.deletemodule, name='deletemodule'),
+	url(r'^palette', views.palette, name='palette'),
 )
