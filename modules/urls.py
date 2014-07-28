@@ -13,4 +13,6 @@ urlpatterns = patterns('',
 	url(r'^newmodule', views.newmodule, name='newmodule'),
 	url(r'^deletemodule', views.deletemodule, name='deletemodule'),
 	url(r'^palette', views.palette, name='palette'),
+	url(r'^register', views.register, name='register'),
+	url(r'^login/$', views.user_login, name='login'),
 )

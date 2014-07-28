@@ -1,8 +1,8 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
-from allauth.account.models import EmailAddress
-from allauth.socialaccount.models import SocialAccount
+#from allauth.account.models import EmailAddress
+#from allauth.socialaccount.models import SocialAccount
 from django_facebook import *
 import hashlib
 
@@ -63,6 +63,16 @@ class Module_Form(forms.ModelForm):
 		model = UserModule
 		exclude = ('user', 'link')
 
+#Creating USERFORM
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
+
+
 #FACEBOOK EDIT
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
@@ -91,10 +101,7 @@ class UserProfile(models.Model):
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
 		
 		
-		
-		
-		
-		
+	
 		
 		
 		
