@@ -138,5 +138,7 @@ STATICFILES_DIRS = (
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+LOGIN_URL = '/modules/login/'
+
 
 
