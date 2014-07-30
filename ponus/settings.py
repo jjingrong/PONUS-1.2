@@ -62,16 +62,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
-    'django_facebook.context_processors.facebook',
+    #'django_facebook.context_processors.facebook',
     'django.core.context_processors.csrf',
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
+    #"allauth.account.context_processors.account",
+    #"allauth.socialaccount.context_processors.socialaccount",
 )
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
+    #'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
-    'social_auth.backends.facebook.FacebookBackend',
-    "allauth.account.auth_backends.AuthenticationBackend",
+    #'social_auth.backends.facebook.FacebookBackend',
+    #"allauth.account.auth_backends.AuthenticationBackend",
 )
 
 INSTALLED_APPS = (
@@ -82,7 +82,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'modules',
-    'django_facebook',
+    #'django_facebook',
     'south',
 )
 
