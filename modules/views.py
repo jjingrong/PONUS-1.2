@@ -149,7 +149,7 @@ def palette(request):
 
 
 #Registration page
-def register(request):
+def main(request):
     # Like before, get the request's context.
     context = RequestContext(request)
 
@@ -172,25 +172,27 @@ def register(request):
             # Once hashed, we can update the user object.
             user.set_password(user.password)
             user.save()
-
             # Update our variable to tell the template registration was successful.
-            registered = True
-
-        # Invalid form or forms - mistakes or something else?
-        # Print problems to the terminal.
-        # They'll also be shown to the user.
+            registered = True            
+            #log in after registering and making sure the form is valid
+            user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            if user:
+            	login(request, user)
+            	moduleslist = Module.objects.all()
+            	try:
+            		usermodules = UserModule.objects.filter(user=request.user)
+            	except:
+            		usermodules = UserModule.objects.none()
+            	return render_to_response('home.html', {'usermodules':usermodules, 'moduleslist': moduleslist}, context)
         else:
-            print user_form.errors
-
-    # Not a HTTP POST, so we render our form using two ModelForm instances.
-    # These forms will be blank, ready for user input.
+			print user_form.errors
     else:
         user_form = UserForm()
 
 
     # Render the template depending on the context.
     return render_to_response(
-            'modules/register.html',
+            'modules/main.html',
             {'user_form': user_form, 'registered': registered},
             context)
 
@@ -218,7 +220,7 @@ def user_login(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/modules/')
+                return HttpResponseRedirect('/modules/home')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your account is disabled.")
@@ -232,7 +234,7 @@ def user_login(request):
     else:
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
-        return render_to_response('modules/login.html', {}, context)
+        return render_to_response('modules/main.html', {}, context)
 
 
 # Use the login_required() decorator to ensure only those logged in can access the view.
@@ -242,4 +244,4 @@ def user_logout(request):
     logout(request)
 
     # Take the user back to the homepage.
-    return HttpResponseRedirect('/modules/')
+    return HttpResponseRedirect('/modules/main.html')

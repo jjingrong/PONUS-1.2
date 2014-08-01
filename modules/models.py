@@ -34,6 +34,12 @@ class Module(models.Model):
 	exam_date = models.CharField(max_length=200, null=True, blank=True)
 	
 	exam_duration = models.CharField(max_length=50, null=True, blank=True)
+
+	preclu = models.CharField(max_length=50, null=True, blank=True)
+
+	prereqAnd = models.CharField(max_length=50, null=True, blank=True)
+
+	prereqOr = models.CharField(max_length=50, null=True, blank=True)
 		
 class Lesson(models.Model):
 	ClassNo = models.CharField(max_length=50)
@@ -99,26 +105,3 @@ class UserProfile(models.Model):
 
  
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
-		
-		
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-	
-	
